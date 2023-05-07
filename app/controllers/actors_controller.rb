@@ -1,4 +1,6 @@
 class ActorsController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @actors = Actor.all
     render json: @actors, status: 200

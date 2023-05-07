@@ -6,9 +6,15 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: self
 
+  ROLES = %w{super_admin admin newuser}
+
   def jwt_payload
     super
   end
 
-
+  ROLES.each do |role_name|
+    define_method "#{role_name}?" do
+      role == role_name
+    end
+  end
 end

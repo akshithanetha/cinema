@@ -1,4 +1,6 @@
 class CinemasController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @cinemas = Cinema.all
      render json: @cinemas, status: 200
