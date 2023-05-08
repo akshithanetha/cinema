@@ -52,3 +52,7 @@ gem "devise-jwt"
 
 gem "pundit"
 
+#gem "active-model-serializer"
+
+gem 'active_model_serializers', '~> 0.10.2'
+

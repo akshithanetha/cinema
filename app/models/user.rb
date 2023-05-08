@@ -6,7 +6,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable,
          :jwt_authenticatable, jwt_revocation_strategy: self
 
-  ROLES = %w{super_admin admin newuser}
+  ROLES = %w{admin newuser}
 
   def jwt_payload
     super

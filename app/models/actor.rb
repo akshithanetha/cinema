@@ -2,7 +2,7 @@ class Actor < ApplicationRecord
   belongs_to :cinema, optional: true
   has_and_belongs_to_many :languages
   has_many :remuneration_histories
-
+  has_many :assistants, as: :assistable
   include Validatable
   after_initialize do
    puts "Record Instantiated"

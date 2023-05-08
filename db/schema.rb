@@ -10,12 +10,12 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_05_07_072640) do
+ActiveRecord::Schema[7.0].define(version: 2023_05_08_090957) do
   create_table "actors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "age"
+    t.integer "age"
     t.integer "cinema_id"
     t.index ["cinema_id"], name: "index_actors_on_cinema_id"
   end
@@ -24,6 +24,14 @@ ActiveRecord::Schema[7.0].define(version: 2023_05_07_072640) do
     t.integer "actor_id", null: false
     t.integer "language_id", null: false
     t.index ["actor_id", "language_id"], name: "index_actors_languages_on_actor_id_and_language_id"
+  end
+
+  create_table "assistants", force: :cascade do |t|
+    t.string "assistable_type", null: false
+    t.integer "assistable_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["assistable_type", "assistable_id"], name: "index_assistants_on_assistable"
   end
 
   create_table "cinemas", force: :cascade do |t|
