@@ -1,5 +1,5 @@
 class Actor < ApplicationRecord
-  belongs_to :cinema, optional: true
+  belongs_to :cinema, optional: true, counter_cache: true
   has_and_belongs_to_many :languages
   has_many :remuneration_histories
   has_many :assistants, as: :assistable
@@ -21,6 +21,7 @@ class Actor < ApplicationRecord
   end
   before_save :normalize_name
   before_create :capitalize_name
+
   after_save do
     puts "Record Saved"
   end
